@@ -30,7 +30,7 @@ export default function Home() {
         <div className="flex flex-1 flex-col items-center justify-center bg-cover bg-center bg-[url('/keybordbackground.jpg')]"
         
         >
-         <div className="w-full h-full flex flex-col justify-center items-center backdrop-blur-md bg-[#012226]/50 ">
+         <div className="w-full h-full flex flex-col justify-center items-center backdrop-blur-md bg-[#012226]/60 ">
            <h1 className="text-4xl font-bold  px-6 py-3 rounded-2xl text-center">
             Boost Your Typing Speed While Having Fun!
           </h1>

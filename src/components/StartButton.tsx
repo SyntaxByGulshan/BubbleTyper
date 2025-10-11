@@ -22,7 +22,7 @@ export default function StartButton({ onStart }: StartButtonProps) {
         damping: 10,
         duration: 0.4,
       }}
-      className="relative overflow-hidden rounded-xl bg-gradient-to-r from-teal-400 to-cyan-500 px-8 py-3 font-extrabold text-[#012226] shadow-lg hover:from-teal-500 hover:to-cyan-600"
+      className="relative overflow-hidden rounded-xl bg-gradient-to-r from-[#b4e6ec] to-[#60bbc5] px-8 py-3 font-extrabold text-[#012226] shadow-lg hover:from-teal-500 hover:to-cyan-600"
     >
       <span className="relative z-10 tracking-wider text-lg"> Start Game</span>
 

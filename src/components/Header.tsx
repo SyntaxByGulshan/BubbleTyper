@@ -38,7 +38,7 @@ export default function Header({
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           transition={{ repeat: 2, repeatType: "mirror", duration: 1.2 }}
-          className=" text-[#012226] bg-[#b4e6ec] hover:bg-teal-500  px-2 py-1 text-center rounded-md p-1 font-bold"
+          className=" text-[#012226] bg-[#6acdd9]  hover:bg-red-500 hover:text-[#b4e6ec]  px-2 py-1 text-center rounded-md p-1 font-bold"
         >
           Exit
         </motion.button>
@@ -48,7 +48,7 @@ export default function Header({
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           transition={{ repeat: 2, repeatType: "mirror", duration: 1.2 }}
-          className="text-[#012226] bg-[#b4e6ec] hover:bg-teal-500  px-2 py-1 text-center rounded-md p-1 font-bold"
+          className="text-[#012226] bg-[#6acdd9] hover:bg-[#1fb3c6]   px-2 py-1 text-center rounded-md p-1 font-bold"
         >
           Home
         </motion.button>
@@ -59,7 +59,7 @@ export default function Header({
           whileTap={{ scale: 0.95 }}
           
           transition={{ repeat: 2, repeatType: "mirror", duration: 1.2 }}
-          className="text-[#012226] bg-[#6acdd9] hover:bg-teal-500  px-2 py-1 text-center rounded-md p-1 font-bold"
+          className="text-[#012226] bg-[#6acdd9] hover:bg-[#1fb3c6]  px-2 py-1 text-center rounded-md p-1 font-bold"
         >
           Progress
         </motion.button>

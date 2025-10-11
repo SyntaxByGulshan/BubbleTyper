@@ -14,7 +14,7 @@ export default function TypingGame() {
       type: Phaser.AUTO,
       width: window.innerWidth-20,
       height: window.innerHeight-80,
-      backgroundColor: "#383b39",
+      backgroundColor: "#012226",
       physics: { default: "arcade" },
       scene: [TypingGameScene],
       parent: "phaser-container",
