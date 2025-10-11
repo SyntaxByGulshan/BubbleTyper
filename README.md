@@ -36,7 +36,7 @@ The project includes a **Game Analysis Dashboard** that shows your performance s
 
 ## 📷 Preview
 
-![BubbleTyper Preview](./preview.png)
+![BubbleTyper Preview](./public/preview.png)
 
 *(Add your own screenshot here)*
 
