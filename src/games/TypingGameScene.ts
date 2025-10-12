@@ -32,7 +32,7 @@ export default class TypingGameScene extends Phaser.Scene{
     // initilize variables
     this.lifes = 3;
     this.score = 0;
-    this.startTime = this.time.now;
+    this.startTime = Date.now();
     this.typedCount = 0;
     this.totalTyped = 0;
    this.level = localStorage.getItem('level') as LevelType;
@@ -73,8 +73,35 @@ export default class TypingGameScene extends Phaser.Scene{
 
     // keyboard input
     this.input.keyboard!.on("keydown", (event: KeyboardEvent) => {
-      checkBubble.call(this,event.key);
-    });
+  const key = event.key;
+
+  // Allowed sets by level
+  const beginnerKeys = /^[a-zA-Z]$/; // only letters
+  const intermediateKeys = /^[a-zA-Z0-9]$/; // letters + numbers
+  const proKeys = /^[a-zA-Z0-9!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]$/; // all printable
+
+  let allowed = false;
+
+  switch (this.level) {
+    case "beginner":
+      allowed = beginnerKeys.test(key);
+      break;
+    case "intermediate":
+      allowed = intermediateKeys.test(key);
+      break;
+    case "pro":
+      allowed = proKeys.test(key);
+      break;
+    default:
+      allowed = false;
+  }
+
+  if (allowed) {
+    event.preventDefault(); // block default browser action
+    checkBubble.call(this, key.toLowerCase());
+  }
+});
+
 
     // speed increases
     startIncreasingSpeed.call(this);

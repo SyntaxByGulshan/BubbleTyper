@@ -20,13 +20,13 @@ export function checkGameOver(this:any) {
 
 
        const newResult: BubbleResultType = {
-            date:this.time.now,
+            date: Date.now().toLocaleString(),
             level: this.level,
             score: this.score,
             speed: wpm,
             wrongInput: this.totalTyped - this.typedCount,
             correctInput: this.typedCount,
-            duration:(this.time.now - this.startTime)/1000 
+            duration:(Date.now() - this.startTime)/1000 
            }; 
      const savedData = localStorage.getItem("typingGameResult")
      if (savedData) {

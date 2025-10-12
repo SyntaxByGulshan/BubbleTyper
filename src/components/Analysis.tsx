@@ -56,7 +56,7 @@ export default function Analysis() {
   return (
     <div className="  p-6 md:p-12 text-[#cdeef2] bg-[#012226]">
       <h1 className="text-4xl font-extrabold  mb-8 text-center">
-        📊 Game Analysis
+         Progress Analysis
       </h1>
 
       {/* Level Filter & Clear Button */}
@@ -66,7 +66,7 @@ export default function Analysis() {
           <select
             value={filterLevel}
             onChange={(e) => setFilterLevel(e.target.value as BubbleResultType["level"] | "all")}
-            className="border border-gray-300 rounded-lg px-3 py-1 focus:outline-none focus:ring-2 focus:ring-blue-400"
+            className="border  rounded-lg px-3 py-1 focus:outline-none focus:ring-2 focus:ring-blue-400"
           >
             <option value="all">All</option>
             <option value="beginner">Beginner</option>
@@ -113,8 +113,8 @@ export default function Analysis() {
         </motion.div>
       </div>
 
-      {/* Sort Options */}
-      {/* <div className="flex justify-end mb-4">
+    
+     <div className="flex justify-end mb-4">
         <label className="mr-2 font-semibold text-gray-700">Sort by:</label>
         <select
           value={sortField}
@@ -124,11 +124,11 @@ export default function Analysis() {
           <option value="score">Score</option>
           <option value="speed">Speed</option>
         </select>
-      </div> */}
+      </div>
 
       {/* Detailed Results Table */}
-      <div className="overflow-x-auto  shadow rounded-xl p-4">
-        <table className=" border-collapse">
+      <div className=" overflow-x-auto shadow rounded-xl">
+        <table className="min-w-full border-collapse">
           <thead>
             <tr className="bg-gray-100">
               <th className="py-2 px-4 text-left text-gray-700 font-semibold">Date</th>
@@ -149,7 +149,7 @@ export default function Analysis() {
               </tr>
             ) : (
               sortedResults.map((r, idx) => (
-                <tr key={idx} className="border-t hover:bg-gray-50">
+                <tr key={idx} className="border-t hover:bg-[#02444d]">
                   <td className="py-2 px-4">{r.date ? new Date(r.date).toLocaleDateString() : "-"}</td>
                   <td className="py-2 px-4 capitalize">{r.level}</td>
                   <td className="py-2 px-4">{r.score}</td>
