@@ -27,7 +27,7 @@ export default function Home() {
       ) : showAnalysis ? (
         <Analysis />
       ) : (
-        <div className="flex flex-1 flex-col items-center justify-center bg-cover bg-center bg-[url('/keybordbackground.jpg')]"
+        <div className="flex flex-1 flex-col items-center justify-center bg-cover bg-center bg-[url('/keyboardbackground.jpg')]"
         
         >
          <div className="w-full h-full flex flex-col justify-center items-center backdrop-blur-md bg-[#012226]/60 ">
