@@ -10,7 +10,7 @@ export default function Home() {
   const [showAnalysis, setShowAnalysis] = useState<true | false>(false);
   const { highScore, topSpeed, totalGames } = useGameStats();
   return (
-    <div className="flex flex-col  h-screen text-[#cdeef2] bg-[#012226]">
+    <div className="flex flex-col  h-screen text-[#cdeef2] bg-[#012226] overflow-y-scroll no-scrollbar ">
       {/* Header Section */}
       <Header
         gameStart={gameStart}

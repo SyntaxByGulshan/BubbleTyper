@@ -20,7 +20,7 @@ export function checkGameOver(this:any) {
 
 
        const newResult: BubbleResultType = {
-            date: Date.now().toLocaleString(),
+            date: new Date().toLocaleString(),
             level: this.level,
             score: this.score,
             speed: wpm,

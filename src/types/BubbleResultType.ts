@@ -5,5 +5,5 @@ level: "beginner" | "intermediate" | "pro";
   correctInput: number;
   wrongInput: number;
   duration: number;
-  date?:string;
+  date:string;
 }
