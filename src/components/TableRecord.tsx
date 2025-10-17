@@ -7,19 +7,19 @@ interface TableRecordProps {
 
 export default function TableRecord({ results }: TableRecordProps) {
   const [filterLevel, setFilterLevel] = useState<BubbleResultType["level"] | "all">("all");
-  const [sortField, setSortField] = useState<"score" | "speed">("score");
+  const [sortField, setSortField] = useState<"score" | "speed" |"latest">("latest");
 
   const filteredResults =
     filterLevel === "all"
       ? results
       : results.filter((r) => r.level === filterLevel);
 
-  const sortedResults = [...filteredResults].sort(
+  const sortedResults = sortField==="latest" ? filteredResults: [...filteredResults].sort(
     (a, b) => b[sortField] - a[sortField]
   );
 
   return (
-    <div>
+    <div className="py-2 my-2">
       <div className="flex md:flex-row justify-between items-center gap-4 p-2 text-[#cdeef2]">
         {/* Filter dropdown */}
         <div className="flex items-center gap-2 text-[#6acdd9]">
@@ -37,17 +37,15 @@ export default function TableRecord({ results }: TableRecordProps) {
             <option value="pro">Pro</option>
           </select>
         </div>
-
-        
-
         {/* Sort dropdown */}
         <div className="flex items-center gap-2 text-[#6acdd9]">
           <label className="mr-2 font-semibold ">Sort by:</label>
           <select
             value={sortField}
             onChange={(e) => setSortField(e.target.value as "score" | "speed")}
-            className="border border-gray-300 bg-[#012226] rounded-lg px-3 py-1 focus:outline-none"
-          >
+            className="border bg-[#012226] rounded-lg px-3 py-1 focus:outline-none"
+          > 
+            <option value="latest">Latest</option>
             <option value="score">Score</option>
             <option value="speed">Speed</option>
           </select>
@@ -55,27 +53,27 @@ export default function TableRecord({ results }: TableRecordProps) {
         {/* Clear Button */}
         <button
           onClick={() => {
-            localStorage.removeItem("bubbleResults");
-            window.location.reload();
+           setFilterLevel("all")
+           setSortField("latest")
           }}
-          className="bg-red-500 hover:bg-red-600  px-4 py-2 rounded-lg shadow"
+          className="bg-green-800 hover:bg-green-700  px-2 py-1 rounded-lg shadow"
         >
-          Clear Results
+          Reset
         </button>
       </div>
 
       {/* Results Table */}
-      <div className="overflow-x-auto shadow rounded-xl">
-        <table className="min-w-full border-collapse">
+      <div className="overflow-x-auto shadow ">
+        <table className="min-w-full border-collapse ">
           <thead>
-            <tr className="">
-              <th className="py-2 px-4 text-left text-gray-700 font-semibold">Date</th>
-              <th className="py-2 px-4 text-left text-gray-700 font-semibold">Level</th>
-              <th className="py-2 px-4 text-left text-gray-700 font-semibold">Score</th>
-              <th className="py-2 px-4 text-left text-gray-700 font-semibold">Speed (WPM)</th>
-              <th className="py-2 px-4 text-left text-gray-700 font-semibold">Correct Input</th>
-              <th className="py-2 px-4 text-left text-gray-700 font-semibold">Wrong Input</th>
-              <th className="py-2 px-4 text-left text-gray-700 font-semibold">Duration (s)</th>
+            <tr className="  bg-[#6acdd9]  text-[#012226]">
+               <th className="py-2 px-4 text-left  font-semibold">SN</th>
+              <th className="py-2 px-4 text-left  font-semibold">Date</th>
+              <th className="py-2 px-4 text-left  font-semibold">Level</th>
+              <th className="py-2 px-4 text-left  font-semibold">Score</th>
+              <th className="py-2 px-4 text-left  font-semibold">Speed (WPM)</th>
+              <th className="py-2 px-4 text-left  font-semibold">Correct Input</th>
+              <th className="py-2 px-4 text-left  font-semibold">Wrong Input</th>
             </tr>
           </thead>
           <tbody>
@@ -89,15 +87,16 @@ export default function TableRecord({ results }: TableRecordProps) {
               sortedResults.map((r, idx) => (
                 <tr
                   key={idx}
-                  className={`border-t ${idx % 2 === 0 ? "" : ""} hover:bg-[#02444d] hover:text-white`}
+                  className={`border-t border-[#6acdd9]  text-[#6acdd9] ${idx % 2 === 0 ? "" : ""} hover:bg-[#02444d] hover:text-white`}
                 >
+                   <td className="py-2 px-4">{idx+1}</td>
                   <td className="py-2 px-4">{r.date ? new Date(r.date).toLocaleDateString() : "-"}</td>
                   <td className="py-2 px-4 capitalize">{r.level}</td>
                   <td className="py-2 px-4">{r.score}</td>
                   <td className="py-2 px-4">{r.speed}</td>
                   <td className="py-2 px-4">{r.correctInput}</td>
                   <td className="py-2 px-4">{r.wrongInput}</td>
-                  <td className="py-2 px-4">{r.duration}</td>
+                
                 </tr>
               ))
             )}

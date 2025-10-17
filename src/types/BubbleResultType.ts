@@ -1,5 +1,6 @@
 export interface  BubbleResultType{
-level: "beginner" | "intermediate" | "pro";
+ 
+ level: "beginner" | "intermediate" | "pro";
   score: number;
   speed: number;
   correctInput: number;
