@@ -1,36 +1,50 @@
 import { updateUI } from "./updateUI";
 import { checkGameOver } from "./checkGameOver";
 
+export function checkBubble(this: any, key: string) {
+  const typedKey = key.toUpperCase();
+  let hit = false;
+  this.totalTyped++;
 
+  for (let i = 0; i < this.bubbles.length; i++) {
+    const bubbleData = this.bubbles[i];
 
+    if (bubbleData.letter === typedKey) {
+      hit = true;
+      this.popSound.play();
+      // Blast animation: scale up + fade out
+      this.tweens.add({
+        targets: [bubbleData.bubble, bubbleData.text],
+        scale: 1.5,       // grow a bit
+        alpha: 0,         // fade out
+        duration: 300,    // 0.3 seconds
+        ease: "Power1",
+        onComplete: () => {
+          // Destroy objects after animation
+          bubbleData.bubble.destroy();
+          bubbleData.text.destroy();
+          
+          // Remove from bubbles array
+          this.bubbles.splice(i, 1);
+        }
+      });
 
+      //  Update stats
+      this.typedCount++;
+      this.score += 10;
 
-export function checkBubble(this:any,  key : string) {
-    const typedKey = key.toUpperCase();
-    let hit = false;
-    this.totalTyped++;
+      // Optional: play pop sound
+      // this.popSound.play();
 
-    for (let i = 0; i < this.bubbles.length; i++) {
-      if (this.bubbles[i].letter === typedKey) {
-        this.bubbles[i].bubble.destroy();
-        this.bubbles[i].text.destroy();
-        this.bubbles.splice(i, 1);
-        this.typedCount++;
-        this.score += 10;
-        hit = true;
-        // this.popSound.play();
-        break;
-      }
+      break; // stop loop after first hit
     }
-
-    if (!hit) {
-      this.score -= 20;
-      this.lifes -= 1;
-      updateUI.call(this);
-       // this.wrongSound.play();
-       // this.wrongSound.play();
-      checkGameOver.call(this);
-    }
-
-    this.scoreText.setText(`Score: ${this.score}`);
   }
+
+  if (!hit) {
+    this.wrongSound.play();
+    this.score -= 10;
+    checkGameOver.call(this);
+  }
+
+  this.scoreText.setText(`Score: ${this.score}`);
+}

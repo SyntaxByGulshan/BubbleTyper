@@ -33,17 +33,7 @@ export default function Analysis() {
     }
   }, [results]);
 
-  // Clear all results
-//  const handleClearResults = () => {
-//     if (confirm("Are you sure you want to clear all results?")) {
-//       localStorage.removeItem("typingGameResult");
-//       setResults([]);
-//       setHighScore(0);
-//       setTopSpeed(0);
-//       setTotalGames(0);
-//     }
-//   };
-
+  
   return (
     <div className=" w-full p-4 md:p-12  bg-[#012226]  ">
       <h1 className="text-4xl font-extrabold  mb-8 text-center">
