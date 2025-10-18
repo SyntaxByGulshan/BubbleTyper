@@ -1,5 +1,4 @@
 
-import { useGameStats } from "../customHook/useGameStats";
 import type { BubbleResultType } from "../types/BubbleResultType";
 import {
   BarChart,
