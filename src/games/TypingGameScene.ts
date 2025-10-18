@@ -26,7 +26,7 @@ export default class TypingGameScene extends Phaser.Scene{
   private heartsText!: Phaser.GameObjects.Text;
   private popSound!: Phaser.Sound.BaseSound;
   private wrongSound!: Phaser.Sound.BaseSound;
-   
+  
   
     preload(){
       this.load.audio('pop', 'assents/pop.mp3');  // use your pop sound file

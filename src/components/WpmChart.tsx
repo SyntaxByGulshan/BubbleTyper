@@ -1,4 +1,5 @@
 
+import { useGameStats } from "../customHook/useGameStats";
 import type { BubbleResultType } from "../types/BubbleResultType";
 import {
   BarChart,
@@ -17,7 +18,7 @@ interface WpmChartProps {
   data: BubbleResultType[];
 }
 
-// ✅ Custom Tooltip Component
+//  Custom Tooltip Component
 const CustomTooltip = ({ active, payload }: any) => {
   if (active && payload && payload.length) {
     const item = payload[0].payload;
@@ -33,12 +34,14 @@ const CustomTooltip = ({ active, payload }: any) => {
 };
 
 export default function WpmChart({ data }: WpmChartProps) {
-  //  Take only first 5 records
+
+   
   const chartData = data.slice(0, 5).map((item, index) => ({
     ...item,
-    index: index + 1, // For X-axis numbering
-  }));
+    index: index + 1, 
+  })); 
 
+  console.log(chartData);
   return (
     <div className="md:w-full h-80 rounded-2xl shadow p-4">
       <h2 className="text-lg font-semibold mb-4 text-center text-indigo-600">
