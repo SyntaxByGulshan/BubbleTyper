@@ -24,7 +24,7 @@ export default function Home() {
   const isScreenSupported = screenWidth >= 768; // example: min width 768px
 
   return (
-    <div className="flex flex-col  h-screen text-[#cdeef2] bg-[#012226]/70 overflow-y-scroll no-scrollbar">
+    <div className="flex flex-col  h-screen text-[#cdeef2] bg-[#012226] overflow-y-scroll no-scrollbar">
       {/* Header Section */}
       <Header
         gameStart={gameStart}
@@ -46,7 +46,7 @@ export default function Home() {
             src="/keyboardbackground.jpg"
             alt=""
             loading="lazy"
-            className="absolute inset-0 w-full h-full object-cover -z-10"
+            className="absolute inset-0 w-full h-full object-cover "
           />
           <div className="w-full h-full flex flex-col md:justify-center pt-12 items-center backdrop-blur-md">
             <h1 className="md:text-4xl text-2xl font-bold  px-6 py-3 rounded-2xl text-center m-4">
