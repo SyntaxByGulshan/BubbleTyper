@@ -87,7 +87,7 @@ export default function TableRecord({ results }: TableRecordProps) {
               sortedResults.map((r, idx) => (
                 <tr
                   key={idx}
-                  className={`border-t border-[#6acdd9]  text-[#6acdd9] ${idx % 2 === 0 ? "" : ""} hover:bg-[#02444d] hover:text-white`}
+                  className={`border-t border-[#6acdd9]  text-[#6acdd9] ${r.attempt === results.length ? "bg-[#02444d]" : ""} hover:bg-[#02444d] hover:text-white`}
                 >
                    <td className="py-2 px-4">{idx+1}</td>
                   <td className="py-2 px-4">{r.date ? new Date(r.date).toLocaleDateString() : "-"}</td>

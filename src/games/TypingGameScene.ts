@@ -84,7 +84,7 @@ export default class TypingGameScene extends Phaser.Scene {
       .text(
         (this.sys.game.config.width as number) - 60,
         (this.sys.game.config.height as number) - 40,
-        "🔊",
+        "\u{1F50A}",
         {
           fontSize: "28px",
           color: "#cdeef2",
