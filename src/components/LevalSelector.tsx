@@ -22,7 +22,7 @@ export default function LevelSelector() {
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
       <motion.h2
-        className="text-xl font-semibold text-[#6acdd9] flex gap-2"
+        className="md:text-xl font-semibold text-[#6acdd9] flex gap-2"
         initial={{ scale: 0.9, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ delay: 0.2, type: "spring", stiffness: 150 }}
@@ -35,7 +35,7 @@ export default function LevelSelector() {
           whileHover={{ scale: 1.08 }}
           whileTap={{ scale: 0.95 }}
           onClick={() => setLevel("beginner")}
-          className={`px-5 py-2 rounded-lg font-semibold transition-all duration-200 
+          className={`md:px-4 md:py-2 py-1 px-2 rounded-lg md:font-semibold transition-all duration-200 
             ${
               level === "beginner"
                 ? "bg-green-500 text-[#cdeef2] shadow-lg scale-105"
@@ -49,7 +49,7 @@ export default function LevelSelector() {
           whileHover={{ scale: 1.08 }}
           whileTap={{ scale: 0.95 }}
           onClick={() => setLevel("intermediate")}
-          className={`px-5 py-2 rounded-lg font-semibold transition-all duration-200 
+          className={`md:px-4 md:py-2 px-2 py-1 rounded-lg md:font-semibold transition-all duration-200 
             ${
               level === "intermediate"
                 ? "bg-yellow-500 text-[#cdeef2] shadow-lg scale-105"
@@ -63,7 +63,7 @@ export default function LevelSelector() {
           whileHover={{ scale: 1.08 }}
           whileTap={{ scale: 0.95 }}
           onClick={() => setLevel("pro")}
-          className={`px-5 py-2 rounded-lg font-semibold transition-all duration-200 
+          className={`md:px-4 md:py-2 p-1 px-2 py-1 rounded-lg md:font-semibold transition-all duration-200 
             ${
               level === "pro"
                 ? "bg-red-500 text-[#cdeef2] shadow-lg scale-105"

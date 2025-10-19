@@ -26,6 +26,8 @@ export default class TypingGameScene extends Phaser.Scene{
  private heartsText!: Phaser.GameObjects.Text;
   private popSound!: Phaser.Sound.BaseSound;
   private wrongSound!: Phaser.Sound.BaseSound;
+  private lifeDecrese!:Phaser.Sound.BaseSound;
+  private gameOver!:Phaser.Sound.BaseSound;
   
   
     preload(){
@@ -33,11 +35,15 @@ export default class TypingGameScene extends Phaser.Scene{
   // Wrong key sound
   this.load.audio('wrong', 'assents/wrong.mp3'); // use your wrong sound file
   // Particle texture
+   this.load.audio('gameOver','assents/over.mp3')
+   this.load.audio('lifeDecrese','assents/life.mp3');
     }
     create(){
     // initilize variables
      this.popSound = this.sound.add('pop');
   this.wrongSound = this.sound.add('wrong');
+  this.gameOver=this.sound.add('gameOver');
+  this.lifeDecrese=this.sound.add('lifeDecrese');
     this.lifes = 3;
     this.score = 0;
     this.startTime = Date.now();
@@ -123,7 +129,7 @@ export default class TypingGameScene extends Phaser.Scene{
         b.bubble.destroy();
         b.text.destroy();
         this.bubbles.splice(index, 1);
-        this.wrongSound.play();
+        this.lifeDecrese.play();
         this.score -= 5;
         this.lifes -= 1;
         updateUI.call(this)

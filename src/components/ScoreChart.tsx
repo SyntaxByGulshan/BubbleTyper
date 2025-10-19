@@ -32,20 +32,20 @@ const CustomTooltip = ({ active, payload }: any) => {
 
 export default function ScoreChart({ data }:ScoreChartProps) {
   //  Show only first 5 records
-  const chartData = data.slice(0, 5).map((item, index) => ({
-    ...item,
-    index: index + 1, // for X-axis numbering
-  }));
+  const chartData = data.slice(0, 5).map((item) => ({
+    ...item
+   
+  })).reverse();
   return (
     <div className="md:w-full h-80 rounded-2xl shadow p-4">
       <h2 className="text-lg font-semibold mb-4 text-center text-green-600">
-        Score Over Time
+        Score Over Attempts
       </h2>
 
       <ResponsiveContainer width="100%" height="100%">
         <BarChart data={chartData}>
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="index" label={{ position: "insideBottom", offset: -5 }} />
+          <XAxis dataKey="attempt" label={{ position: "insideBottom", offset: -5 }} />
           <YAxis label={{ value: "Score", angle: -90, position: "insideLeft" }} />
           <Tooltip content={<CustomTooltip />} />
           <Legend />

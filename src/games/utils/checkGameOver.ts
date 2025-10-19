@@ -1,4 +1,5 @@
 
+
 import type { BubbleResultType } from "../../types/BubbleResultType";
 import { getResults } from "./getResults";
 export function checkGameOver(this:any) {
@@ -7,7 +8,7 @@ export function checkGameOver(this:any) {
       const centerX = (this.sys.game.config.width as number) / 2;
       const centerY = (this.sys.game.config.height as number) / 2;   
     // this.bgMusic.stop();       
-    // this.gameOverSound.play();
+    this.gameOver.play();
 
       this.time.removeAllEvents();
       if (this.speedEvent) this.speedEvent.remove();
@@ -18,8 +19,11 @@ export function checkGameOver(this:any) {
       });
       this.bubbles = [];
 
-
+          const savedData:BubbleResultType[] = JSON.parse(localStorage.getItem("typingGameResult")||"[]")
+          console.log(savedData)
+          
        const newResult: BubbleResultType = {
+           attempt:savedData.length+1,
             date: new Date().toLocaleString(),
             level: this.level,
             score: this.score,
@@ -28,11 +32,11 @@ export function checkGameOver(this:any) {
             correctInput: this.typedCount,
             duration:(Date.now() - this.startTime)/1000 
            }; 
-     const savedData = localStorage.getItem("typingGameResult")
-     if (savedData) {
-          const results: BubbleResultType[] = JSON.parse(savedData);
+    
+     if (savedData.length) {
+          
                     
-           localStorage.setItem("typingGameResult", JSON.stringify([newResult,...results]));
+           localStorage.setItem("typingGameResult", JSON.stringify([newResult,...savedData]));
         }else{
                localStorage.setItem("typingGameResult", JSON.stringify([newResult]));
         }
