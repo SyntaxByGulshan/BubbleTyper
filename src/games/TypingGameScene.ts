@@ -15,16 +15,16 @@ interface Bubble {
 export default class TypingGameScene extends Phaser.Scene{
   private bubbles: Bubble[] = [];
   private score: number = 0;
-  private scoreText!: Phaser.GameObjects.Text;
+ // private scoreText!: Phaser.GameObjects.Text;
   private speed: number = 1;
-  private speedEvent?: Phaser.Time.TimerEvent;
-  private typedCount: number = 0;
-  private totalTyped: number = 0;
-  private startTime: number=0;
+  // private speedEvent?: Phaser.Time.TimerEvent;
+  // private typedCount: number = 0;
+  // private totalTyped: number = 0;
+  // private startTime: number=0;
   private lifes: number = 3;
   private level:LevelType  = localStorage.getItem('level') as LevelType ;
-  private heartsText!: Phaser.GameObjects.Text;
-  private popSound!: Phaser.Sound.BaseSound;
+ // private heartsText!: Phaser.GameObjects.Text;
+  //private popSound!: Phaser.Sound.BaseSound;
   private wrongSound!: Phaser.Sound.BaseSound;
   
   
