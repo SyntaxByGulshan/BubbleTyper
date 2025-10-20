@@ -48,7 +48,7 @@ export default function Home() {
             loading="lazy"
             className="absolute inset-0 w-full h-full object-cover "
           />
-          <div className="w-full h-full flex flex-col md:justify-center pt-12 items-center backdrop-blur-md">
+          <div className="w-full h-full flex flex-col md:justify-center pt-12 items-center bg-[#012226]/60  backdrop-blur-md">
             <h1 className="md:text-4xl text-2xl font-bold  px-6 py-3 rounded-2xl text-center m-4">
               Boost Your Typing Speed While Having Fun!
             </h1>
