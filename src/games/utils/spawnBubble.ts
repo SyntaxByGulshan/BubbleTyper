@@ -33,9 +33,10 @@ export function spawnBubble(this:any) {
   const radius = 30;
   const gameWidth = this.sys.game.config.width as number;
   const x = Phaser.Math.Between(radius, gameWidth - radius);
-
-  const bubble = this.add.circle(x, 600, radius, bubbleColor);
-  const text = this.add.text(x - 10, 590, letter, {
+  const gameHeight = this.sys.game.config.height as number;
+  const y = gameHeight - radius;
+  const bubble = this.add.circle(x, y, radius, bubbleColor);
+  const text = this.add.text(x - 10, y-10, letter, {
     fontSize: "24px",
     color: textColor,
     fontStyle: "bold",

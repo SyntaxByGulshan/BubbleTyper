@@ -35,7 +35,7 @@ export default function Analysis() {
 
   
   return (
-    <div className=" w-full p-4 md:p-12  bg-[#012226]  ">
+    <div className=" w-full p-4 md:p-12  bg-[#012226] ">
       <h1 className="text-4xl font-extrabold  mb-8 text-center">
          Progress Analysis
       </h1>
