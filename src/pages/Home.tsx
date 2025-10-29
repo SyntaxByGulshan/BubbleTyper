@@ -1,8 +1,8 @@
 import { useState, useEffect,lazy } from "react";
 import Header from "../components/Header";
 import { useGameStats } from "../customHook/useGameStats";
-import LevelSelector from "../components/LevalSelector";
-import StartButton from "../components/StartButton";
+const LevalSelector =lazy(()=>import("../components/LevalSelector"))
+const StartButton =lazy(()=>import("../components/StartButton"))
 const TypingGame =lazy(()=>import("../games/TypingGame"))
 const Analysis=lazy(()=>import("../components/Analysis"))
 export default function Home() {
@@ -21,8 +21,10 @@ export default function Home() {
   //  Define a minimum width for supported screens
   const isScreenSupported = screenWidth >= 768; // example: min width 768px
 
+
   return (
-    <div className="flex flex-col  h-screen text-[#cdeef2] bg-[#012226] overflow-y-scroll no-scrollbar font-mono">
+    <div className="    ">
+      <div className="flex flex-col bg-[#012226]  h-screen text-[#cdeef2]  overflow-y-scroll no-scrollbar font-mono">
       {/* Header Section */}
       <Header
         gameStart={gameStart}
@@ -41,16 +43,19 @@ export default function Home() {
       ) : (
         <div className="flex flex-1 flex-col  relative  ">
           <img
+           className="absolute inset-0 w-full h-full object-cover "
+           
             src="/keyboardbackground.jpg"
+           
             alt=""
-            loading="lazy"
-            className="absolute inset-0 w-full h-full object-cover "
+           
+           
           />
           <div className="w-full h-full flex flex-col md:justify-center pt-12 items-center bg-[#012226]/60  backdrop-blur-md">
-            <h1 className="md:text-3xl text-2xl font-bold  px-6 py-3 rounded-2xl text-center m-4">
+            <h1 className="md:text-3xl text-xl font-bold  px-6 py-3 rounded-2xl text-center m-4 ">
               Boost Your Typing Speed While Having Fun!
             </h1>
-            <p className="md:text-sm text-sm text-[#b4e6ec] md:mb-8 mb-6 max-w-2xl text-center mx-4 ">
+            <p className="md:text-sm text-xs text-[#b4e6ec] md:mb-8 mb-6 max-w-2xl text-center mx-4 ">
               Improve your typing speed while having fun! Select a difficulty
               level and start typing the letters and characters before they
               reach the top.
@@ -76,17 +81,18 @@ export default function Home() {
               </p>
             </div>
 
-            <LevelSelector />
+            <LevalSelector />
             {isScreenSupported ? (
               <StartButton onStart={() => setGameStart(true)} />
             ) : (
-              <div className="text-red-400     bg-red-950 px-4 py-2 rounded-xl mx-6 my-4 text-center">
+              <div className="text-red-400 bg-red-950 px-4 py-2 rounded-xl mx-6 my-4 text-center">
                 Screen not supported — please use a larger device.
               </div>
             )}
           </div>
         </div>
       )}
+    </div>
     </div>
   );
 }

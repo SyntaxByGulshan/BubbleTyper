@@ -16,7 +16,7 @@ export default function Header({
   // Function to get glow color for active button
   return (
     <motion.header
-      className="flex justify-between items-center bg-[#02444d] py-2 px-4"
+      className="flex justify-between items-center bg-[#02444d] py-2 px-4 "
       initial={{ y: -50, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ type: "spring", stiffness: 120, damping: 20 }}
